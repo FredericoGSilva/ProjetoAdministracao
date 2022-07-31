@@ -1,10 +1,16 @@
 package Telas;
 
+import Conexao.ConexaoMySQL;
+import Rh.Cargos.Administrador;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Frederico
@@ -14,8 +20,17 @@ public class TelaDeLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaDeLogin
      */
-    public TelaDeLogin() {
+    public TelaDeLogin() { //Inicialização de todos os componentes do Form.
         initComponents();
+
+        Connection conexao = ConexaoMySQL.conector();
+
+        if (conexao != null) {
+            Lbl_Status.setText("Conectado");
+        } else {
+            Lbl_Status.setText("Desconectado");
+        }
+        
     }
 
     /**
@@ -30,7 +45,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         Txt_Nome = new javax.swing.JTextField();
         Lbl_Nome = new javax.swing.JLabel();
         Lbl_Senha = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Txt_Senha = new javax.swing.JTextField();
         Lbl_Status = new javax.swing.JLabel();
         Button_Entrar = new javax.swing.JButton();
 
@@ -44,13 +59,18 @@ public class TelaDeLogin extends javax.swing.JFrame {
         Lbl_Senha.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Lbl_Senha.setText("Senha:");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Txt_Senha.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
         Lbl_Status.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Lbl_Status.setText("Status");
 
         Button_Entrar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Button_Entrar.setText("Entrar");
+        Button_Entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_EntrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,7 +86,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Lbl_Senha)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1))
+                        .addComponent(Txt_Senha))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Lbl_Nome)
                         .addGap(18, 18, 18)
@@ -83,7 +103,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lbl_Senha)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Txt_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Lbl_Status)
@@ -93,6 +113,34 @@ public class TelaDeLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Button_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EntrarActionPerformed
+
+        try {
+            // codificação do botão entrar.
+            String nome = Txt_Nome.getText();
+            String senha = Txt_Senha.getText();
+
+            Administrador adm = new Administrador();
+            adm.setNomeAdm(nome);
+            adm.setSenhaAdm(senha);
+
+            ResultSet resultadoConexaoAdm = adm.autenticacaoAdministrador(adm);
+
+            if (resultadoConexaoAdm.next()) {
+                //chamar tela que eu quero abrir
+                Menu acesso = new Menu();
+                acesso.setVisible(true);
+                dispose();//fecha a tela atual
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválida.");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
+        }
+
+    }//GEN-LAST:event_Button_EntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,6 +183,6 @@ public class TelaDeLogin extends javax.swing.JFrame {
     private javax.swing.JLabel Lbl_Senha;
     private javax.swing.JLabel Lbl_Status;
     private javax.swing.JTextField Txt_Nome;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField Txt_Senha;
     // End of variables declaration//GEN-END:variables
 }
