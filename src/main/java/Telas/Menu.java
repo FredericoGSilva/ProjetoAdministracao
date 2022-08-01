@@ -43,6 +43,11 @@ public class Menu extends javax.swing.JFrame {
         jCheckBox_CadastrarFuncionario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jCheckBox_CadastrarFuncionario.setSelected(true);
         jCheckBox_CadastrarFuncionario.setText("Cadastrar Funcionário");
+        jCheckBox_CadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox_CadastrarFuncionarioActionPerformed(evt);
+            }
+        });
         jMenu_RecursosHumanos.add(jCheckBox_CadastrarFuncionario);
 
         jCheckBox_Bonificacao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -68,8 +73,14 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 552, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(0, 0, 1040, 583);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCheckBox_CadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_CadastrarFuncionarioActionPerformed
+        CadastroDeFuncionarios acesso = new CadastroDeFuncionarios();
+        acesso.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jCheckBox_CadastrarFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments

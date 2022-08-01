@@ -4,6 +4,13 @@
  */
 package Telas;
 
+import Financeiro.Salarios;
+import Rh.Administração.CadastroFuncionarios;
+import Rh.Administração.Funcionario;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Frederico
@@ -26,10 +33,26 @@ public class CadastroDeFuncionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuBar1 = new java.awt.MenuBar();
         Lbl_Nome = new javax.swing.JLabel();
         Lbl_email = new javax.swing.JLabel();
+        Lbl_Telefone = new javax.swing.JLabel();
+        Lbl_Salarios = new javax.swing.JLabel();
+        Txt_Nome = new javax.swing.JTextField();
+        Txt_Email = new javax.swing.JTextField();
+        Txt_TelefoneCelular = new javax.swing.JTextField();
+        Button_Salvar = new javax.swing.JButton();
+        Button_Voltar = new javax.swing.JButton();
+        Txt_Cargo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Funcionário");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         Lbl_Nome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Lbl_Nome.setText("Nome: ");
@@ -37,29 +60,114 @@ public class CadastroDeFuncionarios extends javax.swing.JFrame {
         Lbl_email.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Lbl_email.setText("Email: ");
 
+        Lbl_Telefone.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Lbl_Telefone.setText("Telefone/Celular: ");
+
+        Lbl_Salarios.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Lbl_Salarios.setText("Cargo: ");
+
+        Txt_Nome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+
+        Txt_Email.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+
+        Txt_TelefoneCelular.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+
+        Button_Salvar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Button_Salvar.setText("Salvar");
+        Button_Salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_SalvarActionPerformed(evt);
+            }
+        });
+
+        Button_Voltar.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        Button_Voltar.setText("Voltar");
+
+        Txt_Cargo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Lbl_email)
-                    .addComponent(Lbl_Nome))
-                .addContainerGap(834, Short.MAX_VALUE))
+                .addGap(190, 190, 190)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Lbl_email)
+                            .addComponent(Lbl_Nome))
+                        .addGap(136, 136, 136)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Txt_Email)
+                            .addComponent(Txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Button_Salvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Button_Voltar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Lbl_Telefone)
+                            .addComponent(Lbl_Salarios))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Txt_TelefoneCelular)
+                            .addComponent(Txt_Cargo))))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(Lbl_Nome)
-                .addGap(18, 18, 18)
-                .addComponent(Lbl_email)
-                .addContainerGap(430, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lbl_Nome)
+                    .addComponent(Txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lbl_email)
+                    .addComponent(Txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lbl_Telefone)
+                    .addComponent(Txt_TelefoneCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lbl_Salarios)
+                    .addComponent(Txt_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Button_Salvar)
+                    .addComponent(Button_Voltar))
+                .addGap(112, 112, 112))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void Button_SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SalvarActionPerformed
+        
+        try {
+            CadastroFuncionarios cadastro = new CadastroFuncionarios();
+            cadastro.setNome(Txt_Nome.getText());
+            cadastro.setEmail(Txt_Email.getText());
+            cadastro.setTelefone(Integer.parseInt(Txt_TelefoneCelular.getText()));
+            cadastro.setCargo(Txt_Cargo.getText());
+
+            ResultSet resultado = cadastro.cadastraNoBanco(cadastro);
+            
+            if (resultado.next()) {
+                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao realizar o cadastro.");
+            }
+            
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no form CadastroDeFuncionarios: " + erro);
+        }
+    }//GEN-LAST:event_Button_SalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,7 +205,16 @@ public class CadastroDeFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button_Salvar;
+    private javax.swing.JButton Button_Voltar;
     private javax.swing.JLabel Lbl_Nome;
+    private javax.swing.JLabel Lbl_Salarios;
+    private javax.swing.JLabel Lbl_Telefone;
     private javax.swing.JLabel Lbl_email;
+    private javax.swing.JTextField Txt_Cargo;
+    private javax.swing.JTextField Txt_Email;
+    private javax.swing.JTextField Txt_Nome;
+    private javax.swing.JTextField Txt_TelefoneCelular;
+    private java.awt.MenuBar menuBar1;
     // End of variables declaration//GEN-END:variables
 }

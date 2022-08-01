@@ -4,6 +4,9 @@
  */
 package Financeiro;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author Frederico
@@ -14,7 +17,7 @@ public class Salarios {
     private final double GERENTE = 16.054;
     private final double MARKETING = 2.654;
     private final double PROGRAMADOR = 5.455;
-
+    
     public double getADMINISTRADOR() {
         return ADMINISTRADOR;
     }

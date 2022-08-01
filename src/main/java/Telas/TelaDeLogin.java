@@ -50,6 +50,12 @@ public class TelaDeLogin extends javax.swing.JFrame {
         Button_Entrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         Txt_Nome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
@@ -111,7 +117,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
                 .addGap(159, 159, 159))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1040, 583));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Button_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EntrarActionPerformed
@@ -139,8 +146,11 @@ public class TelaDeLogin extends javax.swing.JFrame {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
         }
-
     }//GEN-LAST:event_Button_EntrarActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

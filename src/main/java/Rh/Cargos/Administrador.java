@@ -56,10 +56,9 @@ public class Administrador extends Funcionario {
         return super.bonificacao(); 
     }
     
-    Connection conexao = null;
-
     public ResultSet autenticacaoAdministrador(Administrador adm) {
-
+        Connection conexao = null;
+        
         conexao = new ConexaoMySQL().conector();
         
         try {
