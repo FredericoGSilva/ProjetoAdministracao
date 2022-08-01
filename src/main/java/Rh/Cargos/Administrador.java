@@ -68,9 +68,6 @@ public class Administrador extends Funcionario {
             PreparedStatement preparaConexao = conexao.prepareStatement(consultaNoBanco);
             preparaConexao.setString(1, adm.getNomeAdm());
             preparaConexao.setString(2, adm.getSenhaAdm());
-            //Esse método é + segura para senha, pois ao invés de capturar a String completa ele captura apenas 1 caractere por vez aumentando a segurança
-            //String no Java pode ser usado como uma classe modelo onde pode criar objetos e ter acesso a vários recursos
-            //String captura = new String(this.jPasswordField_Senha.getPassword()); --- testar essa linha depois q mudar senha p/ int.
             ResultSet resultadoDaConexao = preparaConexao.executeQuery();
             return resultadoDaConexao;
 

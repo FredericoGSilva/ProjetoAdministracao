@@ -4,6 +4,8 @@
  */
 package Rh.Administração;
 
+import Financeiro.Salarios;
+
 /**
  *
  * @author Frederico
@@ -13,6 +15,7 @@ public class Funcionario {
     private String email; 
     private int telefone;
     private double salario;
+    private String cargo;
 
     public String getNome() {
         return nome;
@@ -39,12 +42,10 @@ public class Funcionario {
         this.salario = salario;
     }
     
-    //Aqui é o método com a regra geral de bonificação.
     public double bonificacao() {
         return salario * 0.05;
     }
     
-    //FORMATAR -
     public void emiteInformacoesSobreFuncionario() {
         System.out.println("\nNome: " + nome + 
                            "\nTelefone: " + telefone + 
@@ -52,9 +53,6 @@ public class Funcionario {
                            "\nSalário: " + salario +
                            "\nBonificação: " + bonificacao());
     }
-    
-    
-    
     
     
 }

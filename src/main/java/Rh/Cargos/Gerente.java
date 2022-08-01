@@ -13,23 +13,13 @@ import Rh.Administração.Funcionario;
 public class Gerente extends Funcionario {
     private int senhaDoGerente;
     
-    public Gerente() { //Rever se os construtores das classes irão iniciar com os salários.
+    public Gerente() { 
         super.setSalario(16.054);
     }
     
-     //salario = 16.054,00
-    
-    /*Gerente têm a sua própria regra de bonificação:
-        regra geral + salario*/
     @Override
-    public double bonificacao() { //A bonificação de todas as classes filhas(cargos) serão exibidas no método emiteInformacoesSobreFuncionario(), junto com outras informações
+    public double bonificacao() { 
         return super.bonificacao() + super.getSalario(); 
     }
-    
-    
-    
-    
-    
-    
     
 }
