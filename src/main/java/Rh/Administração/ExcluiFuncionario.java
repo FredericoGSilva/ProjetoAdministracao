@@ -33,7 +33,7 @@ public class ExcluiFuncionario {
         conexao = new ConexaoMySQL().conector();
 
         try {
-            String sql = "delete from novoFuncionario where nome = ?";
+            String sql = "delete from funcionario where nome = ?";
             PreparedStatement preparando = conexao.prepareStatement(sql);
             preparando.setString(1, funcionario.getNome());
             preparando.execute();

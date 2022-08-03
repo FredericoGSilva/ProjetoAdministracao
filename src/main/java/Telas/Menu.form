@@ -44,6 +44,9 @@
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Bonifica&#xe7;&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox_BonificacaoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

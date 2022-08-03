@@ -4,8 +4,6 @@
  */
 package Rh.Administração;
 
-import Financeiro.Salarios;
-
 /**
  *
  * @author Frederico

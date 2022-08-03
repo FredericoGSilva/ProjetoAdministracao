@@ -4,7 +4,7 @@
  */
 package Telas;
 
-import Financeiro.Salarios;
+import Rh.Administração.Salarios;
 import Rh.Administração.CadastroFuncionarios;
 import Rh.Administração.Funcionario;
 import java.sql.ResultSet;

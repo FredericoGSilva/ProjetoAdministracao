@@ -23,7 +23,7 @@ public class CadastroFuncionarios extends Funcionario {
         conexao = new ConexaoMySQL().conector();
 
         try {
-            String cadastraNoBanco = "insert into novofuncionario(nome, email, telefone, cargo) values (?, ?, ?, ?)";
+            String cadastraNoBanco = "insert into funcionario(nome, email, telefone, cargo) values (?, ?, ?, ?)";
 
             PreparedStatement preparaConexao = conexao.prepareStatement(cadastraNoBanco);
             preparaConexao.setString(1, cadastro.getNome());

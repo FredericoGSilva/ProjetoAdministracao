@@ -63,6 +63,11 @@ public class Menu extends javax.swing.JFrame {
         jCheckBox_Bonificacao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jCheckBox_Bonificacao.setSelected(true);
         jCheckBox_Bonificacao.setText("Bonificação");
+        jCheckBox_Bonificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox_BonificacaoActionPerformed(evt);
+            }
+        });
         jMenu_RecursosHumanos.add(jCheckBox_Bonificacao);
 
         jMenuBar1.add(jMenu_RecursosHumanos);
@@ -97,6 +102,10 @@ public class Menu extends javax.swing.JFrame {
         acesso.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jCheckBoxExcluirFuncionarioActionPerformed
+
+    private void jCheckBox_BonificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_BonificacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox_BonificacaoActionPerformed
 
     /**
      * @param args the command line arguments
