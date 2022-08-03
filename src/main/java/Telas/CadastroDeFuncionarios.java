@@ -156,15 +156,16 @@ public class CadastroDeFuncionarios extends javax.swing.JFrame {
             cadastro.setTelefone(Integer.parseInt(Txt_TelefoneCelular.getText()));
             cadastro.setCargo(Txt_Cargo.getText());
 
-            ResultSet resultado = cadastro.cadastraNoBanco(cadastro);
+            cadastro.cadastraNoBanco(cadastro);
             
-            if (resultado.next()) {
+            if (cadastro != null) {
                 JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso.");
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao realizar o cadastro.");
             }
             
-        } catch (SQLException erro) {
+        } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no form CadastroDeFuncionarios: " + erro);
         }
     }//GEN-LAST:event_Button_SalvarActionPerformed

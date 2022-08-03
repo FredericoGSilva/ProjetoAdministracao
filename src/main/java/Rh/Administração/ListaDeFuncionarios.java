@@ -4,12 +4,13 @@
  */
 package Rh.Administração;
 
-import java.awt.List;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Frederico
  */
-public class Lista {
- 
+public class ListaDeFuncionarios {
+    
+    List<Funcionario> listaDeFuncionarios = new ArrayList<>;
 }

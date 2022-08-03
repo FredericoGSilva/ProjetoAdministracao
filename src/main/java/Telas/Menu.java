@@ -30,6 +30,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_RecursosHumanos = new javax.swing.JMenu();
         jCheckBox_CadastrarFuncionario = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxExcluirFuncionario = new javax.swing.JCheckBoxMenuItem();
         jCheckBox_Bonificacao = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
@@ -49,6 +50,15 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu_RecursosHumanos.add(jCheckBox_CadastrarFuncionario);
+
+        jCheckBoxExcluirFuncionario.setSelected(true);
+        jCheckBoxExcluirFuncionario.setText("Excluir funcionário");
+        jCheckBoxExcluirFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxExcluirFuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu_RecursosHumanos.add(jCheckBoxExcluirFuncionario);
 
         jCheckBox_Bonificacao.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jCheckBox_Bonificacao.setSelected(true);
@@ -81,6 +91,12 @@ public class Menu extends javax.swing.JFrame {
         acesso.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jCheckBox_CadastrarFuncionarioActionPerformed
+
+    private void jCheckBoxExcluirFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxExcluirFuncionarioActionPerformed
+        ExcluirFuncionario acesso = new ExcluirFuncionario();
+        acesso.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jCheckBoxExcluirFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +134,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxExcluirFuncionario;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBox_Bonificacao;
     private javax.swing.JCheckBoxMenuItem jCheckBox_CadastrarFuncionario;
