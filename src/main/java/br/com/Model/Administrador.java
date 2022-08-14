@@ -4,14 +4,6 @@
  */
 package br.com.Model;
 
-import Conexao.ConexaoMySQL;
-import br.com.Model.Funcionario;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Frederico
@@ -56,26 +48,5 @@ public class Administrador extends Funcionario {
     public double bonificacao() {
         return super.bonificacao(); 
     }
-    /*
-    public ResultSet autenticacaoAdministrador(Administrador adm) {
-        Connection conexao = null;
-        
-        conexao = new ConexaoMySQL().conector();
-        
-        try {
-            String consultaNoBanco = "select * from tb_loginAdministrador where usuario = ? and senha = ?";
-            
-            PreparedStatement preparaConexao = conexao.prepareStatement(consultaNoBanco);
-            preparaConexao.setString(1, adm.getNomeAdm());
-            preparaConexao.setString(2, adm.getSenhaAdm());
-            ResultSet resultadoDaConexao = preparaConexao.executeQuery();
-            return resultadoDaConexao;
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro na classe Administrador: " + erro);
-            return null;
-        }
-
-    }*/
 
 }

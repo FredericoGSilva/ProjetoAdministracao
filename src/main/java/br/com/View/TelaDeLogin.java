@@ -150,31 +150,6 @@ public class TelaDeLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
         }
         
-        /*
-        try {
-            // codificação do botão entrar.
-            String nome = Txt_Nome.getText();
-            String senha = Txt_Senha.getText();
-
-            Administrador adm = new Administrador();
-            adm.setNomeAdm(nome);
-            adm.setSenhaAdm(senha);
-
-            ResultSet resultadoConexaoAdm = adm.autenticacaoAdministrador(adm);
-
-            if (resultadoConexaoAdm.next()) {
-                //chamar tela que eu quero abrir
-                Menu acesso = new Menu();
-                acesso.setVisible(true);
-                dispose();//fecha a tela atual
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuário ou senha inválida.");
-            }
-
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
-        }
-        */
     }//GEN-LAST:event_Button_EntrarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
