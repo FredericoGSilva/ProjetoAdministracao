@@ -1,6 +1,7 @@
 package br.com.View;
 
 import Conexao.ConexaoMySQL;
+import br.com.Controller.LoginController;
 import br.com.Model.Administrador;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -129,6 +130,33 @@ public class TelaDeLogin extends javax.swing.JFrame {
             String senha = Txt_Senha.getText();
 
             Administrador adm = new Administrador();
+            adm.setNome(nome);
+            adm.setSenhaAdm(senha);
+            
+            LoginController controller = new LoginController(this);
+
+            ResultSet resultadoConexao = controller.atenticaLogin(adm);
+
+            if (resultadoConexao.next()) {
+                //chamar tela que eu quero abrir
+                Menu acesso = new Menu();
+                acesso.setVisible(true);
+                dispose();//fecha a tela atual
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválida.");
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
+        }
+        
+        /*
+        try {
+            // codificação do botão entrar.
+            String nome = Txt_Nome.getText();
+            String senha = Txt_Senha.getText();
+
+            Administrador adm = new Administrador();
             adm.setNomeAdm(nome);
             adm.setSenhaAdm(senha);
 
@@ -146,6 +174,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
         }
+        */
     }//GEN-LAST:event_Button_EntrarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
