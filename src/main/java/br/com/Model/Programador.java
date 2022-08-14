@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Rh.Administração;
+package br.com.Model;
 
 import br.com.Model.Funcionario;
 
@@ -10,15 +10,14 @@ import br.com.Model.Funcionario;
  *
  * @author Frederico
  */
-public class Bonificacao extends Funcionario {
+public class Programador extends Funcionario {
     
-    public double bonificacaoGeral() {
-        return getSalario() * 0.05;
+    //salario = 5.455,00
+    @Override
+    public double bonificacao() {
+        return super.bonificacao(); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public double bonificacaoAdministrador() {
-        return bonificacaoGeral() + getSalario();
-    }
     
     
 }

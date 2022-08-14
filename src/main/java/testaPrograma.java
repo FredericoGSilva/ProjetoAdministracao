@@ -1,6 +1,6 @@
 
 import Rh.Administração.Bonificacao;
-import Rh.Administração.Funcionario;
+import br.com.Model.Funcionario;
 import Rh.Cargos.Gerente;
 
 /*

@@ -4,11 +4,11 @@
  */
 package Rh.Administração;
 
+import br.com.Model.Funcionario;
 import Conexao.ConexaoMySQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +23,7 @@ public class CadastroFuncionarios extends Funcionario {
         conexao = new ConexaoMySQL().conector();
 
         try {
-            String cadastraNoBanco = "insert into funcionario(nome, email, telefone, cargo) values (?, ?, ?, ?)";
+            String cadastraNoBanco = "insert into tb_funcionario(nome, email, telefone, cargo) values (?, ?, ?, ?)";
 
             PreparedStatement preparaConexao = conexao.prepareStatement(cadastraNoBanco);
             preparaConexao.setString(1, cadastro.getNome());
