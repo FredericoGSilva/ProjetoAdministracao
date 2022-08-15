@@ -4,9 +4,8 @@
  */
 package br.com.Controller;
 
-import Conexao.ConexaoMySQL;
+import br.com.Controller.LoginHelper.LoginHelper;
 import br.com.Model.Administrador;
-import br.com.Model.Funcionario;
 import br.com.View.TelaDeLogin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,29 +22,16 @@ public class LoginController {
     // O único q pode ter acesso ao login é o adm.
     
     private final TelaDeLogin view;
+    private LoginHelper helper;
     
     public LoginController(TelaDeLogin view) {
         this.view = view;
+        this.helper = new LoginHelper(view);
+        
     }
     
-    public ResultSet atenticaLogin(Administrador adm) {
-        Connection conexao = null;
-        
-        conexao = new ConexaoMySQL().conector();
-        
-        try {
-            String consultaNoBanco = "select * from tb_loginAdministrador where usuario = ? and senha = ?";
-            
-            PreparedStatement preparaConexao = conexao.prepareStatement(consultaNoBanco);
-            preparaConexao.setString(1, adm.getNome());
-            preparaConexao.setString(2, adm.getSenhaAdm());
-            ResultSet resultadoDaConexao = preparaConexao.executeQuery();
-            return resultadoDaConexao;
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro na classe Administrador: " + erro);
-            return null;
-        }
-    
+    public void entrarNoSistema() {
+        helper.obterLogin();
     }
     
 }

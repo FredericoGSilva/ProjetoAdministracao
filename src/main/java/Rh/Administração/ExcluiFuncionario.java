@@ -4,7 +4,7 @@
  */
 package Rh.Administração;
 
-import Conexao.ConexaoMySQL;
+import br.com.Controller.ConexaoMySQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

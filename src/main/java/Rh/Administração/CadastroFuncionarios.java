@@ -5,7 +5,7 @@
 package Rh.Administração;
 
 import br.com.Model.Funcionario;
-import Conexao.ConexaoMySQL;
+import br.com.Controller.ConexaoMySQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

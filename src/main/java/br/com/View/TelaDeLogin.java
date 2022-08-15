@@ -1,12 +1,14 @@
 package br.com.View;
 
-import Conexao.ConexaoMySQL;
+import br.com.Controller.ConexaoMySQL;
 import br.com.Controller.LoginController;
 import br.com.Model.Administrador;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -124,6 +126,17 @@ public class TelaDeLogin extends javax.swing.JFrame {
 
     private void Button_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EntrarActionPerformed
 
+        LoginController login = new LoginController(this);
+        
+        if (login != null) {
+            Menu menu = new Menu();
+            menu.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro.");
+        }
+ 
+        
+        /*
         try {
             // codificação do botão entrar.
             String nome = Txt_Nome.getText();
@@ -149,6 +162,7 @@ public class TelaDeLogin extends javax.swing.JFrame {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no form TelaDeLogin: " + erro);
         }
+        */
         
     }//GEN-LAST:event_Button_EntrarActionPerformed
 
@@ -199,4 +213,13 @@ public class TelaDeLogin extends javax.swing.JFrame {
     private javax.swing.JTextField Txt_Nome;
     private javax.swing.JTextField Txt_Senha;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getTxt_Nome() {
+        return Txt_Nome;
+    }
+
+    public JTextField getTxt_Senha() {
+        return Txt_Senha;
+    }
+    
 }
