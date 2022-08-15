@@ -1,6 +1,6 @@
 package br.com.View;
 
-import br.com.Controller.ConexaoMySQL;
+import br.com.Model.DAO.ConexaoMySQL;
 import br.com.Controller.LoginController;
 import br.com.Model.Administrador;
 import java.sql.Connection;
@@ -126,6 +126,14 @@ public class TelaDeLogin extends javax.swing.JFrame {
 
     private void Button_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EntrarActionPerformed
 
+        try {
+            
+            
+            
+        } catch (Exception e) {
+        
+        }
+        
         LoginController login = new LoginController(this);
         
         if (login != null) {
