@@ -48,7 +48,6 @@ public class Administrador extends Funcionario {
     public double bonificacao() {
         return super.bonificacao(); 
     }
-
     
 
 }

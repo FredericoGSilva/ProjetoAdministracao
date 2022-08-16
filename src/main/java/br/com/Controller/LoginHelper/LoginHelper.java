@@ -28,9 +28,5 @@ public class LoginHelper {
         return adm;
     }
     
-    public void autenticaHelper() {
-        
-    }
-    
     
 }

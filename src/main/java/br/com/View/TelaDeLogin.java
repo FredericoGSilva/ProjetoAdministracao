@@ -3,6 +3,7 @@ package br.com.View;
 import br.com.Model.DAO.ConexaoMySQL;
 import br.com.Controller.LoginController;
 import br.com.Model.Administrador;
+import br.com.Model.DAO.AdministradorDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,11 +21,15 @@ import javax.swing.JTextField;
  */
 public class TelaDeLogin extends javax.swing.JFrame {
 
+    private final LoginController controller;
+    
     /**
      * Creates new form TelaDeLogin
      */
     public TelaDeLogin() { //Inicialização de todos os componentes do Form.
         initComponents();
+        
+        controller = new LoginController(this); // têm q ter a referência para a tela: this
 
         Connection conexao = ConexaoMySQL.conector();
 
@@ -126,25 +131,8 @@ public class TelaDeLogin extends javax.swing.JFrame {
 
     private void Button_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_EntrarActionPerformed
 
-        try {
-            
-            
-            
-        } catch (Exception e) {
-        
-        }
-        
-        LoginController login = new LoginController(this);
-        
-        if (login != null) {
-            Menu menu = new Menu();
-            menu.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Erro.");
-        }
- 
-        
-        /*
+        this.controller.entrarNoSistema();
+       /*
         try {
             // codificação do botão entrar.
             String nome = Txt_Nome.getText();
@@ -222,6 +210,10 @@ public class TelaDeLogin extends javax.swing.JFrame {
     private javax.swing.JTextField Txt_Senha;
     // End of variables declaration//GEN-END:variables
 
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+    
     public JTextField getTxt_Nome() {
         return Txt_Nome;
     }
