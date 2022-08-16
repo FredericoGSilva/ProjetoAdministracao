@@ -4,8 +4,6 @@
  */
 package br.com.Model;
 
-import br.com.Model.Funcionario;
-
 /**
  *
  * @author Frederico

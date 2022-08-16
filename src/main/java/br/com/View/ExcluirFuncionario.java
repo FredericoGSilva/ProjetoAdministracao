@@ -4,8 +4,6 @@
  */
 package br.com.View;
 
-import Rh.Administração.ExcluiFuncionario;
-import br.com.Model.Funcionario;
 import javax.swing.JOptionPane;
 
 /**
@@ -110,7 +108,7 @@ public class ExcluirFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_CancelarActionPerformed
 
     private void jButton_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ExcluirActionPerformed
-        String nome = Txt_Nome.getText();
+   /*     String nome = Txt_Nome.getText();
         
         ExcluiFuncionario excluiFuncionario = new ExcluiFuncionario();
         excluiFuncionario.setNome(nome);
@@ -126,7 +124,7 @@ public class ExcluirFuncionario extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no form ExcluirFuncionario: " + erro);
         }   
-
+*/
 
     }//GEN-LAST:event_jButton_ExcluirActionPerformed
 

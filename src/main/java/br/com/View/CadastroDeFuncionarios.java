@@ -4,11 +4,6 @@
  */
 package br.com.View;
 
-import Rh.Administração.Salarios;
-import Rh.Administração.CadastroFuncionarios;
-import br.com.Model.Funcionario;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -148,7 +143,7 @@ public class CadastroDeFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void Button_SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_SalvarActionPerformed
-        
+ /*       
         try {
             CadastroFuncionarios cadastro = new CadastroFuncionarios();
             cadastro.setNome(Txt_Nome.getText());
@@ -167,7 +162,7 @@ public class CadastroDeFuncionarios extends javax.swing.JFrame {
             
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no form CadastroDeFuncionarios: " + erro);
-        }
+        }   */
     }//GEN-LAST:event_Button_SalvarActionPerformed
 
     /**
